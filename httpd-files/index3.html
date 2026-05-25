@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Veera Sir | Full Multi-Cloud DevOps & AI Curriculum</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0b0f1a;
+            --surface: #161b2b;
+            --accent: #2dd4bf; /* Teal */
+            --accent-glow: rgba(45, 212, 191, 0.3);
+            --text-main: #e2e8f0;
+            --text-muted: #94a3b8;
+            --border: rgba(255, 255, 255, 0.08);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        /* --- STICKY TOP BAR --- */
+        .top-bar {
+            background: rgba(11, 15, 26, 0.8);
+            backdrop-filter: blur(12px);
+            padding: 1.2rem 5%;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .brand { font-weight: 800; font-size: 1.4rem; letter-spacing: -1px; }
+        .brand span { color: var(--accent); }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            padding: 80px 5%;
+            text-align: center;
+            background: radial-gradient(circle at center, #1e293b 0%, #0b0f1a 100%);
+        }
+
+        .hero h1 { font-size: clamp(2rem, 5vw, 3.5rem); margin-bottom: 1rem; color: #fff; }
+        .hero p { color: var(--accent); font-weight: 600; font-size: 1.1rem; letter-spacing: 2px; text-transform: uppercase; }
+
+        .highlights {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .h-item {
+            background: var(--surface);
+            padding: 10px 25px;
+            border-radius: 50px;
+            border: 1px solid var(--border);
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        /* --- PROJECT SHOWCASE --- */
+        .section-title {
+            text-align: center;
+            margin: 60px 0 40px;
+            font-size: 2rem;
+            color: #fff;
+        }
+
+        .project-wall {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 20px;
+            padding: 0 5%;
+            margin-bottom: 80px;
+        }
+
+        .p-card {
+            background: var(--surface);
+            padding: 25px;
+            border-radius: 15px;
+            border: 1px solid var(--border);
+            position: relative;
+            transition: 0.3s;
+        }
+
+        .p-card:hover {
+            border-color: var(--accent);
+            box-shadow: 0 0 20px var(--accent-glow);
+            transform: translateY(-5px);
+        }
+
+        .p-card h3 { font-size: 1rem; color: var(--accent); margin-bottom: 10px; display: flex; align-items: center; gap: 10px; }
+        .p-card h3::before { content: '🚀'; }
+
+        /* --- FULL SYLLABUS GRID --- */
+        .syllabus-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            padding: 0 5% 100px;
+        }
+
+        .m-box {
+            background: var(--surface);
+            border-radius: 20px;
+            padding: 30px;
+            border: 1px solid var(--border);
+            transition: 0.3s;
+        }
+
+        .m-box:hover { background: #1c2336; }
+
+        .m-box h2 {
+            font-size: 1.1rem;
+            color: #fff;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--accent);
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .m-box ul { list-style: none; }
+        .m-box ul li {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            padding: 8px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .m-box ul li::before { content: '▹'; color: var(--accent); font-weight: bold; }
+
+        /* --- FOOTER --- */
+        footer {
+            background: #070a13;
+            padding: 60px 5%;
+            text-align: center;
+            border-top: 1px solid var(--border);
+        }
+
+        .btn {
+            background: var(--accent);
+            color: #000;
+            padding: 15px 40px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 800;
+            display: inline-block;
+            margin-top: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .project-wall { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="top-bar">
+    <div class="brand">Multicloud Devops <span> VEERA Sir Nareshit</span></div>
+    <div style="font-size: 0.8rem; font-weight: 600; color: var(--text-muted);">NARESH I TECHNOLOGIES</div>
+</div>
+
+<header class="hero">
+    <p>Veera Sir Naresh it</p>
+    <h1>Multi-Cloud DevOps with AI</h1>
+    <div class="highlights">
+        <div class="h-item">150 Classes</div>
+        <div class="h-item">6 Months</div>
+        <div class="h-item">20+ Projects</div>
+        <div class="h-item">Resume Support</div>
+    </div>
+</header>
+
+<h2 class="section-title">Industry-Scale Real Time Projects</h2>
+
+<div class="project-wall">
+    <div class="p-card"><h3>Multi-Tier Node.js on AWS</h3>Deployment with 20+ AWS services, High Availability & Monitoring.</div>
+    <div class="p-card"><h3>Scalable Python App on EC2</h3>Architecture with complete Disaster Recovery strategy.</div>
+    <div class="p-card"><h3>Java Spring Boot on Azure</h3>Cloud-native deployment with High Availability & DR.</div>
+    <div class="p-card"><h3>Node.js on GCP</h3>Deployment with Scalability, Networking, and Cloud Security.</div>
+    <div class="p-card"><h3>Automated DB Migration</h3>Moving EC2 MySQL to Amazon RDS via AWS DMS (Zero Downtime).</div>
+    <div class="p-card"><h3>On-Prem to AWS Migration</h3>End-to-end migration using Industry best practices.</div>
+    <div class="p-card"><h3>Static Hosting with CDN</h3>AWS S3 + CloudFront + Custom Domain + Route53.</div>
+    <div class="p-card"><h3>Serverless Backup Automation</h3>Automated strategies using Lambda functions & Boto3.</div>
+    <div class="p-card"><h3>CDN Cache Invalidation</h3>Optimizing CloudFront with Lambda-triggered invalidations.</div>
+    <div class="p-card"><h3>ECS Fargate Deployment</h3>Cloud-native Full-stack deployment with Auto Scaling.</div>
+    <div class="p-card"><h3>Prometheus & Grafana</h3>Centralized observability dashboard for multi-server logs.</div>
+    <div class="p-card"><h3>CloudWatch Log Archival</h3>Serverless archival from CloudWatch to S3 using Lambda.</div>
+    <div class="p-card"><h3>Multi-Cloud IaC (Terraform)</h3>Automating AWS, Azure, and GCP layers in one code base.</div>
+    <div class="p-card"><h3>Java Maven on Tomcat</h3>Automation of build and deployment using CI/CD.</div>
+    <div class="p-card"><h3>Node.js Microservices (K8s)</h3>End-to-End CI/CD using Jenkins and Kubernetes EKS.</div>
+    <div class="p-card"><h3>GitLab CI/CD Automation</h3>Node.js microservices deployment on EKS via GitLab.</div>
+    <div class="p-card"><h3>Azure DevOps + AKS</h3>CI/CD for Java apps using Docker and Kubernetes AKS.</div>
+    <div class="p-card"><h3>GitOps with ArgoCD</h3>Continuous Delivery for Microservices on Amazon EKS.</div>
+    <div class="p-card"><h3>Elasticsearch (ELK) Stack</h3>Centralized log monitoring and visualization on EKS.</div>
+    <div class="p-card"><h3>Enterprise IAM & SSO</h3>Identity management using AWS Single Sign-On (SSO).</div>
+</div>
+
+<h2 class="section-title">Full Course Curriculum (Modules 1-20)</h2>
+
+<div class="syllabus-grid">
+    <div class="m-box">
+        <h2>Module 01 <span>Cloud</span></h2>
+        <ul>
+            <li>Why Cloud Computing?</li>
+            <li>Public, Private, Hybrid Models</li>
+            <li>IaaS, PaaS, SaaS</li>
+            <li>Cloud Economics & Scaling</li>
+            <li>Security & Vendor Lock-In</li>
+        </ul>
+    </div>
+
+    <div class="m-box">
+        <h2>Module 02 <span>Virtualization</span></h2>
+        <ul>
+            <li>Hypervisor Concepts</li>
+            <li>Types of Virtualization</li>
+            <li>Benefits & Industry Vendors</li>
+            <li>Cloud Mapping</li>
+        </ul>
+    </div>
+
+    <div class="m-box">
+        <h2>Module 03 <span>Linux</span></h2>
+        <ul>
+            <li>Filesystem & Important Commands</li>
+            <li>File Permissions & User Mgmt</li>
+            <li>Process & Software Management</li>
+            <li>Networking in Linux</li>
+        </ul>
+    </div>
+
+    <div class="m-box">
+        <h2>Module 04 <span>Compute</span></h2>
+        
+        <ul>
+            <li>EC2, Azure VM & GCP Compute</li>
+            <li>Security Groups & Firewalls</li>
+            <li>Load Balancers & Auto Scaling</li>
+            <li>EBS, Snapshots & Metadata</li>
+        </ul>
+    </div>
+
+    <div class="m-box">
+        <h2>Module 05 <span>Networking</span></h2>
+        <ul>
+            <li>CIDR, Subnetting & IP Design</li>
+            <li>Custom VPC/VNET Creation</li>
+            <li>NACLs, Route Tables & IGW</li>
+            <li>VPC Peering concepts</li>
+        </ul>
+    </div>
+
+    <div class="m-box">
+        <h2>Module 06 <span>Storage</span></h2>
+        <ul>
+            <li>S3, Blob & GCP Storage</li>
+            <li>Versioning & Lifecycle Mgmt</li>
+            <li>Static Hosting & Replication</li>
+            <li>KMS Encryption</li>
+        </ul>
+    </div>
+
+    <div class="m-box">
+        <h2>Module 07 <span>IAM</span></h2>
+        <ul>
+            <li>Users, Groups & Roles</li>
+            <li>MFA & Password Policies</li>
+            <li>Customer Managed Policies</li>
+            <li>Activity Auditing</li>
+        </ul>
+    </div>
+
+    <div class="m-box">
+        <h2>Module 08 <span>Databases</span></h2>
+        <ul>
+            <li>Managed RDS (MySQL/Aurora)</li>
+            <li>DynamoDB & NoSQL</li>
+            <li>Read Replicas & RDS Proxy</li>
+            <li>API Gateway Integration</li>
+        </ul>
+    </div>
+
+    <div class="m-box">
+        <h2>Module 09 <span>Security</span></h2>
+        <ul>
+            <li>Secrets Manager & KMS</li>
+            <li>WAF, Shield & Inspector</li>
+            <li>CloudTrail & AWS Config</li>
+            <li>Trusted Advisor</li>
+        </ul>
+    </div>
+
+    <div class="m-box">
+        <h2>Module 10 <span>Serverless</span></h2>
+        <ul>
+            <li>AWS Lambda & App Service</li>
+            <li>Lambda Layers & Integrations</li>
+            <li>Route53 Routing Policies</li>
+            <li>CloudFront Distributions</li>
+        </ul>
+    </div>
+
+    <div class="m-box">
+        <h2>Module 11 <span>DevOps</span></h2>
+        
+        <ul>
+            <li>DevOps Lifecycle & Trends</li>
+            <li>Shell Scripting Foundations</li>
+            <li>Variables, Loops & Operators</li>
+        </ul>
+    </div>
+
+    <div class="m-box">
+        <h2>Module 12 <span>Git/GitHub</span></h2>
+        <ul>
+            <li>Workflow & Installation</li>
+            <li>Branching, Merging & Rebase</li>
+            <li>Working with Remote Repos</li>
+        </ul>
+    </div>
+
+    <div class="m-box">
+        <h2>Module 13 <span>Build</span></h2>
+        <ul>
+            <li>Maven Lifecycle & POM.xml</li>
+            <li>SonarQube Code Quality</li>
+            <li>Maven-Sonar Integration</li>
+        </ul>
+    </div>
+
+    <div class="m-box">
+        <h2>Module 14 <span>Jenkins</span></h2>
+        <ul>
+            <li>CI/CD Pipeline as Code</li>
+            <li>Master & Slave Configuration</li>
+            <li>AWS & Docker Integration</li>
+            <li>Azure & GitLab Pipelines</li>
+        </ul>
+    </div>
+
+    <div class="m-box">
+        <h2>Module 15 <span>Docker</span></h2>
+        <ul>
+            <li>Images vs Containers</li>
+            <li>Dockerfile & Build Context</li>
+            <li>Docker Compose & Swarm</li>
+        </ul>
+    </div>
+
+    <div class="m-box">
+        <h2>Module 16 <span>K8s</span></h2>
+        
+        <ul>
+            <li>Cluster Architecture & Pods</li>
+            <li>Deployments & Services</li>
+            <li>Helm, RBAC & Volumes</li>
+            <li>Managed AKS & EKS</li>
+        </ul>
+    </div>
+
+    <div class="m-box">
+        <h2>Module 17 <span>Logging</span></h2>
+        <ul>
+            <li>Grafana & Prometheus</li>
+            <li>EFK/ELK Stack on K8s</li>
+            <li>Centralized Observability</li>
+        </ul>
+    </div>
+
+    <div class="m-box">
+        <h2>Module 18 <span>Ansible</span></h2>
+        <ul>
+            <li>Ad-hoc vs Playbooks</li>
+            <li>Roles & Modular Design</li>
+            <li>Inventory Management</li>
+        </ul>
+    </div>
+
+    <div class="m-box">
+        <h2>Module 19 <span>Terraform</span></h2>
+        <ul>
+            <li>Providers & State Mgmt</li>
+            <li>Variables, Modules & Backends</li>
+            <li>Multi-Cloud IaC Best Practices</li>
+        </ul>
+    </div>
+
+    <div class="m-box">
+        <h2>Module 20 <span>Python</span></h2>
+        <ul>
+            <li>Python for Automation</li>
+            <li>Boto3 SDK for AWS</li>
+            <li>Regex & OOPS Concepts</li>
+        </ul>
+    </div>
+</div>
+
+<footer>
+    <p>Training by Veera Sir | Naresh I Technologies</p>
+    <a href="#" class="btn">Register for Next Batch</a>
+    <div style="margin-top: 30px; opacity: 0.5; font-size: 0.8rem;">
+        © 2026 Elite Multi-Cloud Training Roadmap
+    </div>
+</footer>
+
+</body>
+</html>

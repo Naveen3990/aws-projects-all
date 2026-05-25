@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Veera Sir | Elite Multi-Cloud DevOps</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #020617;
+            --glass: rgba(15, 23, 42, 0.7);
+            --border: rgba(255, 255, 255, 0.1);
+            --accent-cyan: #06b6d4;
+            --accent-purple: #8b5cf6;
+            --accent-green: #10b981;
+            --accent-yellow: #fbbf24;
+            --accent-red: #ef4444;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg);
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(6, 182, 212, 0.1) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(139, 92, 246, 0.1) 0%, transparent 40%);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Premium Navbar */
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(2, 6, 23, 0.8);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid var(--border);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+        }
+
+        .navbar a {
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: 0.3s;
+            position: relative;
+        }
+
+        .navbar a:hover, .navbar a.active-link {
+            color: var(--accent-cyan);
+        }
+
+        .navbar a.active-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--accent-cyan);
+            box-shadow: 0 0 10px var(--accent-cyan);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 1.5rem;
+        }
+
+        /* Hero Card */
+        .hero-card {
+            background: var(--glass);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            padding: 4rem 2rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: linear-gradient(to right, #22d3ee, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .badge-row {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-top: 1.5rem;
+        }
+
+        .badge {
+            padding: 0.5rem 1.2rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border);
+        }
+
+        /* Project Grid */
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .project-card {
+            background: rgba(30, 41, 59, 0.4);
+            border: 1px solid var(--border);
+            padding: 1.5rem;
+            border-radius: 16px;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            transition: 0.4s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-purple);
+            background: rgba(139, 92, 246, 0.1);
+        }
+
+        .project-card::before {
+            content: '⚡';
+            color: var(--accent-yellow);
+        }
+
+        /* Syllabus Blocks */
+        .syllabus-block {
+            background: var(--glass);
+            border-radius: 20px;
+            border: 1px solid var(--border);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-left: 8px solid var(--accent-cyan);
+        }
+
+        .syllabus-block h2 {
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+            color: var(--accent-cyan);
+        }
+
+        pre {
+            font-family: 'JetBrains Mono', monospace;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 1.5rem;
+            border-radius: 12px;
+            color: #cbd5e1;
+            font-size: 0.95rem;
+            white-space: pre-wrap;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .section-tag {
+            display: inline-block;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            color: var(--accent-purple);
+            font-weight: 800;
+        }
+
+        /* Custom Colors for Sections */
+        .color-cloud { border-left-color: var(--accent-cyan); }
+        .color-devops { border-left-color: var(--accent-purple); }
+        .color-automation { border-left-color: var(--accent-green); }
+        .color-security { border-left-color: var(--accent-red); }
+
+        .footer {
+            background: #020617;
+            padding: 4rem 2rem;
+            text-align: center;
+            border-top: 1px solid var(--border);
+        }
+
+        .page-content { display: none; }
+        .active { display: block; animation: slideUp 0.6s ease-out; }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2.2rem; }
+            .navbar { gap: 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <a id="link-home" class="active-link" onclick="showPage('home')">Home</a>
+        <a id="link-syllabus" onclick="showPage('syllabus')">Full Syllabus</a>
+    </nav>
+
+    <div class="container">
+        
+        <div id="home" class="page-content active">
+            <div class="hero-card">
+                <p style="color: var(--accent-cyan); font-weight: 700; letter-spacing: 4px;">INDUSTRY GRADE TRAINING</p>
+                <h1>Multi-Cloud DevOps with Ai mlops</h1>
+                <h2 style="color: var(--text-secondary); font-weight: 400;">By Veera Sir – Naresh IT</h2>
+                <div class="badge-row">
+                    <span class="badge" style="color: #fbbf24;">12+ Years Exp</span>
+                    <span class="badge" style="color: #22d3ee;">Real-Time Projects</span>
+                    <span class="badge" style="color: #10b981;">Placement Support</span>
+                </div>
+            </div>
+
+            <h2 style="margin-bottom: 1.5rem; text-align: center;">Real-Time Multi-Cloud & AI Projects</h2>
+            <div class="project-grid">
+                <div class="project-card">Multi-Tier Full-Stack Node.js Deployed on AWS Using 20+ Services</div>
+                <div class="project-card">Scalable Python Application on AWS EC2 with Disaster Recovery</div>
+                <div class="project-card">Cloud-Native Java Spring Boot on Azure with High Availability</div>
+                <div class="project-card">Full-Stack Node.js on GCP with High Availability & Security</div>
+                <div class="project-card">Automated DB Migration from EC2 MySQL to Amazon RDS using DMS</div>
+                <div class="project-card">On-Premises to AWS Cloud Migration (End-to-End Strategy)</div>
+                <div class="project-card">Static Web Hosting on AWS S3 with CloudFront & Lambda Edge</div>
+                <div class="project-card">Serverless Backup Automation using AWS Lambda & Boto3</div>
+                <div class="project-card">Full-Stack Deployment on AWS ECS Fargate with CI/CD</div>
+                <div class="project-card">Monitoring Ecosystem: Prometheus, Grafana & Multi-Server Dashboard</div>
+                <div class="project-card">Centralized Logging with CloudWatch & Log Archival to S3</div>
+                <div class="project-card">Multi-Cloud IaC Automation (AWS, Azure, GCP) using Terraform</div>
+                <div class="project-card">Maven App Deployment on Apache Tomcat using CI/CD</div>
+                <div class="project-card">Microservices CI/CD on Kubernetes with Jenkins & EKS</div>
+                <div class="project-card">GitLab CI/CD Automation for Node.js Microservices</div>
+                <div class="project-card">Azure DevOps CI/CD Pipeline for Java Apps on Docker/AKS</div>
+                <div class="project-card">GitOps Implementation with Argo CD & GitHub Actions</div>
+                <div class="project-card">Enterprise IAM with AWS SSO & Fine-Grained Policies</div>
+            </div>
+
+            <div style="margin-top: 4rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
+                <div class="syllabus-block color-automation">
+                    <h3>Why Multi-Cloud?</h3>
+                    <ul style="padding-left: 1.2rem; margin-top: 1rem; color: var(--text-secondary);">
+                        <li>Vendor Independence</li>
+                        <li>High Availability (Cross-Cloud DR)</li>
+                        <li>Cost Optimization across AWS/Azure/GCP</li>
+                        <li>High Demand & Top-Tier Salaries</li>
+                    </ul>
+                </div>
+                <div class="syllabus-block color-devops">
+                    <h3>What You Will Master</h3>
+                    <ul style="padding-left: 1.2rem; margin-top: 1rem; color: var(--text-secondary);">
+                        <li>Linux, Shell, Python Boto3</li>
+                        <li>Docker, Kubernetes, Helm</li>
+                        <li>Jenkins, Azure DevOps, GitLab</li>
+                        <li>Terraform & Ansible</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div id="syllabus" class="page-content">
+            <h1 style="text-align: center; margin-bottom: 3rem;">Complete Engineering Curriculum</h1>
+
+            
+
+            <div class="syllabus-block" style="border-left-color: var(--accent-yellow);">
+                <span class="section-tag">High Level Roadmap</span>
+                <h2>Modules 01 - 35</h2>
+                <pre>
+● Module 01:  Aws, Azure And Gcp Cloud Overview  
+● Module 02:  Linux Introduction  
+● Module 03:  AWS Elastic Compute Cloud (ec2)  
+● Module 04:  Azure Virtual Machine (VM) 
+● Module 05:  GCP Compute Engine 
+● Module 06:  AWS Virtual Private Cloud (VPC)  
+● Module 07:  Azure Virtual Network (VNET)  
+● Module 08:  GCP Cloud Virtual Network 
+● Module 09:  AWS S3 Storage Service 
+● Module 10:  Azure Blob Storage  
+● Module 11:  GCP Cloud Storage  
+● Module 12:  Identity and Access Management 
+● Module 13: Amazon Relational Database and DynamoDB  
+● Module 14: Security Services (KMS, WAF, Shield)
+● Module 15: Serverless Service Lambda 
+● Module 16: Amazon Route 53 (DNS)
+● Module 17: Overview Of DevOps Culture
+● Module 18: Shell Scripting & Automation
+● Module 19: Web App Servers Configurations 
+● Module 20: Version Control with Git 
+● Module 21: Build Tool Maven 
+● Module 22: SonarQube Code Quality
+● Module 23: Continuous Integration – Jenkins 
+● Module 24: Azure CICD (Pipelines)
+● Module 25: Git Lab CICD 
+● Module 26: Docker (Containerization)
+● Module 27: Orchestration using Kubernetes 
+● Module 28: Azure Kubernetes Service (AKS) 
+● Module 29: Overview of Argo CD (GitOps)
+● Module 30: Continuous Monitoring with Grafana 
+● Module 31: Ansible (Configuration Management)
+● Module 32: Terraform (Infrastructure as Code)
+● Module 33: Python Boto3 for AWS SDK
+● Module 34: Capstone Multi-Cloud Project
+● Module 35: Resume Preparation & Mock Interviews</pre>
+            </div>
+
+            <div class="syllabus-block color-cloud">
+                <span class="section-tag">Section 01</span>
+                <h2>Cloud Foundational Concepts</h2>
+                <pre>
+1. Introduction to Cloud Computing 
+• What is Cloud Computing? (History & Evolution)
+• Key players: AWS, Azure, GCP 
+
+2. Cloud Strategy
+• Traditional vs. Cloud Infrastructure 
+• Benefits: Scalability, Elasticity, Flexibility
+• Disaster Recovery & Business Continuity 
+
+3. Service & Deployment Models
+• Public, Private, Hybrid, Community Cloud
+• SaaS, PaaS, IaaS (Deep Dive with Examples)
+
+4. Scaling & Economics
+• Horizontal vs Vertical Scaling 
+• Cloud Costing Models: Pay-as-you-go vs Reserved
+                </pre>
+            </div>
+
+            <div class="syllabus-block color-automation">
+                <span class="section-tag">Section 02</span>
+                <h2>Virtualization & Linux Engineering</h2>
+                <pre>
+1. Virtualization
+• Hypervisor Concepts (Type 1 vs Type 2)
+• Virtualization vs Containerization
+
+2. Linux Mastery
+• Filesystem Hierarchy & Basic Commands
+• File Permissions (chmod, chown)
+• Process Management & User Administration
+• Networking in Linux (iptables, netstat)
+                </pre>
+            </div>
+
+            <div class="syllabus-block color-cloud">
+                <span class="section-tag">Section 03</span>
+                <h2>Multi-Cloud Compute & Networking</h2>
+                <pre>
+1. Compute Services (AWS EC2, Azure VM, GCP GCE)
+• Instance Launching (Windows & Linux)
+• Key Pairs, Security Groups & Firewalls
+• Load Balancers & Auto Scaling Groups
+
+2. Global Networking
+• VPC/VNET Design & CIDR Blocks
+• Subnets, Route Tables, Internet Gateways
+• Peering & VPN Connections
+
+3. Storage Solutions
+• Object Storage: AWS S3, Azure Blob, GCP Storage
+• Versioning, Lifecycle Policies & Static Hosting
+                </pre>
+            </div>
+
+            <div class="syllabus-block color-security">
+                <span class="section-tag">Section 04</span>
+                <h2>Security, Databases & Serverless</h2>
+                <pre>
+1. Identity & Access Management (IAM)
+• Roles, Policies, Groups & MFA
+• Secrets Manager & KMS Encryption
+
+2. Databases
+• Relational: AWS RDS (MySQL, Aurora)
+• NoSQL: DynamoDB
+• Database Migration Service (DMS)
+
+3. Serverless & DNS
+• AWS Lambda: Function as a Service
+• Route 53: Routing Policies (Failover, Latency, Geo)
+                </pre>
+            </div>
+
+            <div class="syllabus-block color-devops">
+                <span class="section-tag">Section 05</span>
+                <h2>DevOps Tools & CI/CD Pipelines</h2>
+                <pre>
+1. Automation
+• Shell Scripting: Loops, Conditions, Functions
+• Web Server Management: Apache, Tomcat, Nginx
+
+2. CI/CD Stack
+• Git: Branching, Merging, Rebase, Stash
+• Maven: POM.xml, Dependencies, Build Lifecycle
+• Jenkins: Pipeline as Code, Master-Slave Architecture
+• Azure DevOps & GitLab CI
+                </pre>
+            </div>
+
+            <div class="syllabus-block color-devops">
+                <span class="section-tag">Section 06</span>
+                <h2>Containers & Orchestration</h2>
+                <pre>
+1. Docker
+• Dockerfile, Image Layers, Networking
+• Docker Compose & Volumes
+
+2. Kubernetes (K8s)
+• Architecture: Control Plane & Worker Nodes
+• Objects: Pods, Deployments, Services, Ingress
+• Helm Charts & Package Management
+• GitOps with Argo CD
+• Monitoring with Prometheus & Grafana
+                </pre>
+            </div>
+
+            <div class="syllabus-block color-automation">
+                <span class="section-tag">Section 07</span>
+                <h2>Infrastructure as Code (IaC)</h2>
+                <pre>
+1. Ansible
+• Agentless Architecture, Playbooks, Roles
+• Inventory Management
+
+2. Terraform
+• Providers, Resources, State Files, Modules
+• Cross-Cloud Deployment (Multi-Provider)
+
+3. Python Boto3
+• Programmatic Access to Cloud Resources
+                </pre>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <h3 style="color: var(--accent-cyan);">Veera Sir – Naresh IT</h3>
+        <p style="color: var(--text-secondary); margin-top: 1rem;">
+            Multi-Cloud DevOps | AWS | Azure | GCP | Kubernetes | Terraform | Ansible
+        </p>
+        <div style="margin-top: 2rem; font-size: 0.8rem; color: #475569;">
+            © 2026 Naresh IT. Designed for Elite Engineers.
+        </div>
+    </footer>
+
+    <script>
+        function showPage(pageId) {
+            // Hide all
+            document.querySelectorAll('.page-content').forEach(p => p.classList.remove('active'));
+            // Show target
+            document.getElementById(pageId).classList.add('active');
+            
+            // Update links
+            document.querySelectorAll('.navbar a').forEach(a => a.classList.remove('active-link'));
+            document.getElementById('link-' + pageId).classList.add('active-link');
+
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
